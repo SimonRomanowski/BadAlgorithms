@@ -1,0 +1,106 @@
+// Run with "gradlew.bat --console=plain run"
+plugins {
+    // Apply the application plugin to add support for building a CLI application in Java.
+    id 'application'
+    // Add Java plugin for java support
+    id 'java'
+    // Add Checkstyle plugin to make sure a universal coding style is being used
+    id 'checkstyle'
+    // Add SpotBugs plugin to find potential sources of bugs ahead of time.
+    id "com.github.spotbugs" version "4.6.0"
+    // Add PMD plugin to check for coding conventions
+    id 'pmd'
+}
+
+repositories {
+    // Use JCenter for resolving dependencies.
+    jcenter()
+    // macenCentral for SpotBugs
+    mavenCentral()
+}
+
+dependencies {
+    // Use JUnit Jupiter API for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+
+    // Use AssertJ for assertions
+    testImplementation 'org.assertj:assertj-core:3.18.1'
+
+    // Use JUnit Jupiter Engine for testing.
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    // This dependency is used by the application.
+    implementation 'com.google.guava:guava:29.0-jre'
+
+    // Annotations to manually disable SpotBugs warnings
+    compileOnly 'com.github.spotbugs:spotbugs-annotations:4.1.4'
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = "de.lasagevo.badalgs.AppEntryPoint"
+}
+
+jar {
+    // Set a main class for the jar file
+    manifest {
+        attributes 'Main-Class': 'de.lasagevo.badalgs.AppEntryPoint'
+    }
+}
+
+tasks.named('test') {
+    // Use junit platform for unit tests.
+    useJUnitPlatform()
+    // Set test results
+    test {
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
+    }
+}
+
+checkstyle {
+    toolVersion '8.37'
+    // Don't ignore failures
+    ignoreFailures = false
+    maxWarnings = 0
+    // Disable Checkstyle for tests
+    checkstyleTest.enabled = false
+}
+
+spotbugs {
+    // Prioritize finding bugs over performance
+    effort = "max"
+}
+
+spotbugsMain {
+    // Return results as a HTML file
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+pmd {
+    toolVersion = "6.29.0"
+
+    // Exclude tests from PMD
+    sourceSets = [sourceSets.main]
+
+    // Activate all rules
+    ruleSets = [
+            "category/java/errorprone.xml",
+            "category/java/bestpractices.xml",
+            "category/java/codestyle.xml",
+            "category/java/design.xml",
+            "category/java/documentation.xml",
+            "category/java/multithreading.xml",
+            "category/java/performance.xml",
+            "category/java/security.xml"
+    ]
+}
+
+run{
+    // Use the system's standard input
+    standardInput = System.in
+}
