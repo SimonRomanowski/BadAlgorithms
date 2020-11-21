@@ -5,9 +5,18 @@
 This is a small project I started for fun and to practise handling IntelliJ, Gradle,
 Checkstyle, PMD and SpotBug (also trying to understand GitHub actions).
 
-BadAlgorithms is a console application that executes various algorithms like insertion
-sort, bubble sort and more. The user defines the list of elements that the algorithms
-should act upon and can decide to get detailed output that describes the process in depth.
+BadAlgorithms is a console application written in Java 11that executes various algorithms
+like insertion sort, bubble sort and more. The user defines the list of elements that the
+algorithms should act upon and can decide to get detailed output that describes the process
+in depth.
+
+== How to run
+
+- Make sure you have installed the newest version of Java Runtime Environment.
+- Download the version of BadAlgorithms that you want to use.
+- Open a command line and navigate to the directory in which you saved the JAR file.
+- Type 'java -jar BadAlgorithms.jar'. (If you saved the file under a different name, you
+have to replace 'BadAlgorithms' with the new name.)
 
 == Commands
 
