@@ -2,6 +2,7 @@ package de.lasagevo.badalgs;
 
 import de.lasagevo.badalgs.algorithms.BubbleSort;
 import de.lasagevo.badalgs.algorithms.InsertionSort;
+import de.lasagevo.badalgs.algorithms.QuickSort;
 import de.lasagevo.badalgs.algorithms.SelectionSort;
 import de.lasagevo.badalgs.algorithms.SortingAlgorithm;
 
@@ -91,6 +92,16 @@ public enum Command {
         public String toString() {
             return "bub_sort - sort your list with bubble sort";
         }
+    },
+
+    /**
+     * The 'qui_sort' command.
+     */
+    QUI_SORT {
+        @Override
+        public String toString() {
+            return "qui_sort - sort your list with quicksort";
+        }
     };
 
     /**
@@ -102,6 +113,7 @@ public enum Command {
         switch (this) {
             case BUB_SORT: // Falls through
             case INS_SORT: // Falls through
+            case QUI_SORT: // Falls through
             case SEL_SORT:
                 isSorting = true;
                 break;
@@ -132,6 +144,10 @@ public enum Command {
 
             case SEL_SORT:
                 sorting = new SelectionSort();
+                break;
+
+            case QUI_SORT:
+                sorting = new QuickSort();
                 break;
 
             default:

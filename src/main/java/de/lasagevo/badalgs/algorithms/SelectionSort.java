@@ -9,12 +9,6 @@ import de.lasagevo.badalgs.UiPrinter;
 @SuppressWarnings("PMD.AtLeastOneConstructor")
 public final class SelectionSort implements SortingAlgorithm {
 
-    /**
-     * Sorts the given array.
-     * <p>This method needs Θ(n²) comparisons and Θ(n) permutations. </p>
-     * @param arr
-     *      The array to be sorted
-     */
     @Override
     public void sort(final int... arr) {
         for (int i = 0; i < arr.length - 1; i++) {
@@ -28,13 +22,6 @@ public final class SelectionSort implements SortingAlgorithm {
         }
     }
 
-    /**
-     * Sorts the given array and prints all the steps to the given
-     * {@link UiPrinter} instance.
-     * <p>This method needs Θ(n²) comparisons and Θ(n) permutations. </p>
-     * @param printer The {@link UiPrinter} to print to
-     * @param arr The array to be sorted
-     */
     @Override
     public void sortVerbose(final UiPrinter printer, final int... arr) {
         SortingAlgorithm.printSortingMessage("selection sort", printer);

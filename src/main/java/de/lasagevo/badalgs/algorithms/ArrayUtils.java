@@ -54,17 +54,11 @@ public final class ArrayUtils {
                     lengths[i] = 1;
                 }
             }
+
             // Print array
-            String arrayString = "\t[";
-            for (int i = 0; i < arr.length; i++) {
-                arrayString += " " + arr[i];
-                if (i != arr.length - 1) {
-                    arrayString += ",";
-                }
-            }
-            arrayString += "]";
+            printArray(arr, printer);
+
             // Print pointer
-            printer.print(arrayString);
             // Calculate amount of whitespace
             int whitespaceCount = 0;
             for (int i = 0; i < pointerPos; i++) {
@@ -85,6 +79,23 @@ public final class ArrayUtils {
     }
 
     /**
+     * Prints the array to the given {@link UiPrinter}.
+     * @param arr The array to print
+     * @param printer The {@link UiPrinter} to print to
+     */
+    public static void printArray(final int[] arr, final UiPrinter printer) {
+        String arrayString = "\t[";
+        for (int i = 0; i < arr.length; i++) {
+            arrayString += " " + arr[i];
+            if (i != arr.length - 1) {
+                arrayString += ",";
+            }
+        }
+        arrayString += "]";
+        printer.print(arrayString);
+    }
+
+    /**
      * Swap the entries i and j in the array arr.
      * <p>Additionally, a message indicating what is swapped is printed
      * to the {@link UiPrinter}</p>
@@ -97,5 +108,6 @@ public final class ArrayUtils {
                                    final int second, final UiPrinter printer) {
         printer.print("\tSwapping " + first + " with " + second);
         swap(arr, first, second);
+        printArray(arr, printer);
     }
 }

@@ -1,29 +1,27 @@
 package de.lasagevo.badalgs.algorithms;
 
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Testing selection sort.
  */
 public class SortingTest {
 
-    private int[] toSort1;
-    private int[] toSort2;
-    private int[] toSort3;
-    private int[] toSort4;
+    private int[][] toSort = new int[4][];
 
     private SortingTest() {
     }
 
     @BeforeEach
     void initArrays() {
-        toSort1 = arrayOf(5, 4, 3, 2, 1);
-        toSort2 = arrayOf(1, 2, 3, 4, 5, 6);
-        toSort3 = arrayOf(-65, 46, 101, 20, 300);
-        toSort4 = arrayOf(0, -345, 43, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        toSort[0] = arrayOf(5, 4, 3, 2, 1);
+        toSort[1] = arrayOf(1, 2, 3, 4, 5, 6);
+        toSort[2] = arrayOf(-65, 46, 101, -20, 300);
+        toSort[3] = arrayOf(0, -345, 43, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
     private int[] arrayOf(int... arr) {
@@ -34,45 +32,40 @@ public class SortingTest {
     void selectionSortTest() {
         final SortingAlgorithm sorting = new SelectionSort();
 
-        sorting.sort(toSort1);
-        sorting.sort(toSort2);
-        sorting.sort(toSort3);
-        sorting.sort(toSort4);
-
-        Assertions.assertThat(toSort1).isSorted();
-        Assertions.assertThat(toSort2).isSorted();
-        Assertions.assertThat(toSort3).isSorted();
-        Assertions.assertThat(toSort4).isSorted();
+        for (int[] ints : toSort) {
+            sorting.sort(ints);
+            assertThat(ints).isSorted();
+        }
     }
 
     @Test
     void insertionSortTest() {
         final SortingAlgorithm sorting = new InsertionSort();
 
-        sorting.sort(toSort1);
-        sorting.sort(toSort2);
-        sorting.sort(toSort3);
-        sorting.sort(toSort4);
-
-        Assertions.assertThat(toSort1).isSorted();
-        Assertions.assertThat(toSort2).isSorted();
-        Assertions.assertThat(toSort3).isSorted();
-        Assertions.assertThat(toSort4).isSorted();
+        for (int[] ints : toSort) {
+            sorting.sort(ints);
+            assertThat(ints).isSorted();
+        }
     }
 
     @Test
     void bubbleSortTest() {
         final SortingAlgorithm sorting = new BubbleSort();
 
-        sorting.sort(toSort1);
-        sorting.sort(toSort2);
-        sorting.sort(toSort3);
-        sorting.sort(toSort4);
+        for (int[] ints : toSort) {
+            sorting.sort(ints);
+            assertThat(ints).isSorted();
+        }
+    }
 
-        Assertions.assertThat(toSort1).isSorted();
-        Assertions.assertThat(toSort2).isSorted();
-        Assertions.assertThat(toSort3).isSorted();
-        Assertions.assertThat(toSort4).isSorted();
+    @Test
+    void quickSortTest() {
+        final SortingAlgorithm sorting = new QuickSort();
+
+        for (int[] ints : toSort) {
+            sorting.sort(ints);
+            assertThat(ints).isSorted();
+        }
     }
 
 }
