@@ -47,7 +47,7 @@ public enum Command {
     SHOW {
         @Override
         public String toString() {
-            return "show - show the currently defined integer list or text";
+            return "show - show the currently defined integer list";
         }
     },
 

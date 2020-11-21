@@ -1,0 +1,50 @@
+= BadAlgorithms
+
+== Info
+
+This is a small project I started for fun and to practise handling IntelliJ, Gradle,
+Checkstyle, PMD and SpotBug (also trying to understand GitHub actions).
+
+BadAlgorithms is a console application that executes various algorithms like insertion
+sort, bubble sort and more. The user defines the list of elements that the algorithms
+should act upon and can decide to get detailed output that describes the process in depth.
+
+== Commands
+
+|===
+|Name |Effect
+
+|help
+|show a list of all commands
+
+|end
+|end the application
+
+|list
+|enter a list of integers for the algorithms to interact with
+
+|show
+|show the currently defined integer list
+
+|verbose
+|turn on/off the verbose setting, printing additional information while executing algorithms
+
+|sel_sort
+|sort your list with selection sort
+
+|ins_sort
+|sort your list with insertion sort
+
+|bub_sort
+|sort your list with bubble sort
+|===
+
+
+== Change log:
+
+=== v0.0 - Initial state of the application (11/21/2020)
+
+So far the user can input a list of integers and have them sorted with insertion sort,
+bubble sort or selection sort.
+
+There also is the 'verbose' option to generate detailed output of the algorithms actions.
