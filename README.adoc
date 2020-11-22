@@ -5,7 +5,7 @@
 This is a small project I started for fun and to practise handling IntelliJ, Gradle,
 Checkstyle, PMD and SpotBug (also trying to understand GitHub actions).
 
-BadAlgorithms is a console application written in Java 11that executes various algorithms
+BadAlgorithms is a console application written in Java 11 that executes various algorithms
 like insertion sort, bubble sort and more. The user defines the list of elements that the
 algorithms should act upon and can decide to get detailed output that describes the process
 in depth.
