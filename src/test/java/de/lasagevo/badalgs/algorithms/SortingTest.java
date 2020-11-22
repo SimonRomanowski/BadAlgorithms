@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class SortingTest {
 
-    private int[][] toSort = new int[4][];
+    private int[][] toSort = new int[5][];
 
     private SortingTest() {
     }
@@ -22,6 +22,7 @@ public class SortingTest {
         toSort[1] = arrayOf(1, 2, 3, 4, 5, 6);
         toSort[2] = arrayOf(-65, 46, 101, -20, 300);
         toSort[3] = arrayOf(0, -345, 43, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        toSort[4] = arrayOf(6, 7, 1, 9, 5, 0, 4, 6, 1, 5, 10, -4, 0, 3);
     }
 
     private int[] arrayOf(int... arr) {
