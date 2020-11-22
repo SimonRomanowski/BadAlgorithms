@@ -62,9 +62,18 @@ Activates verbose setting automatically.
 
 == Change log:
 
+=== v.0.1 - Small changes + new algorithms
+
+- Heapsort and quicksort have been added to the application.
+
+- A new setting, 'dont_sort', has been introduced, causing the algorithms to only
+generate output without sorting the list.
+
+
+
 === v0.0 - Initial state of the application (11/21/2020)
 
-So far the user can input a list of integers and have them sorted with insertion sort,
+- So far the user can input a list of integers and have them sorted with insertion sort,
 bubble sort or selection sort.
 
-There also is the 'verbose' option to generate detailed output of the algorithms actions.
+- There also is the 'verbose' option to generate detailed output of the algorithms actions.
