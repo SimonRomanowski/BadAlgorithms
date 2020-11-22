@@ -38,6 +38,11 @@ public final class CommandProcessor {
     private transient boolean verbose;
 
     /**
+     * If true, the entered array will not be sorted.
+     */
+    private transient boolean dontSort;
+
+    /**
      * The list of integers to sort, defined by user input.
      */
     private transient int[] array;
@@ -94,7 +99,11 @@ public final class CommandProcessor {
                     break;
 
                 case VERBOSE:
-                    switchVerbose();
+                    switchVerbose(!verbose);
+                    break;
+
+                case DONT_SORT:
+                    switchDontSort();
                     break;
 
                 default:
@@ -104,6 +113,20 @@ public final class CommandProcessor {
         }
         // End command execution with a newline
         printer.print("");
+    }
+
+    private void switchDontSort() {
+        dontSort = !dontSort;
+        // Print message
+        String dontSortMessage = "\tDontSort is ";
+        if (!dontSort) {
+            dontSortMessage += "not ";
+        }
+        printer.print(dontSortMessage + "activated.");
+        // Set verbose to true, if activated
+        if (dontSort) {
+            switchVerbose(true);
+        }
     }
 
     private void readList() {
@@ -116,8 +139,8 @@ public final class CommandProcessor {
         }
     }
 
-    private void switchVerbose() {
-        verbose = !verbose;
+    private void switchVerbose(final boolean newValue) {
+        verbose = newValue;
         String verboseMessage = "\tVerbose is ";
         if (!verbose) {
             verboseMessage += "not ";
@@ -127,18 +150,26 @@ public final class CommandProcessor {
 
     /**
      * Sort the entered array with the specified sorting algorithm.
+     * <p>If dontSort is true, the array will be set back to its
+     * initial state afterwards.</p>
      * @param algorithm The algorithm to sort with
      */
+    @SuppressWarnings("PMD.DataflowAnomalyAnalysis")
     private void sort(final SortingAlgorithm algorithm) {
+        int[] origArr = null;
         if (array == null) {
             printer.print("\tDefine a list using 'list' first!");
         } else {
+            origArr = Arrays.copyOf(array, array.length);
             if (verbose) {
                 algorithm.sortVerbose(printer, array);
                 printer.print("\tDone!");
             } else {
                 algorithm.sort(array);
             }
+        }
+        if (dontSort && array != null) {
+            array = origArr;
         }
     }
 

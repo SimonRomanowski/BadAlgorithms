@@ -59,6 +59,18 @@ public enum Command {
     },
 
     /**
+     * The 'DONT_sort' command.
+     */
+    DONT_SORT {
+        @Override
+        public String toString() {
+            return "dont_sort - leaves the entered list untouched by the\n"
+               + "\t            sorting algorithm.\n"
+               + "\t            Activates verbose setting automatically.";
+        }
+    },
+
+    /**
      * The 'sel_sort' command.
      */
     SEL_SORT {
