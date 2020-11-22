@@ -5,6 +5,7 @@ import de.lasagevo.badalgs.UiPrinter;
 import static de.lasagevo.badalgs.algorithms.ArrayUtils.printArrayWithPointer;
 import static de.lasagevo.badalgs.algorithms.ArrayUtils.swap;
 import static de.lasagevo.badalgs.algorithms.ArrayUtils.swapVerbose;
+import static de.lasagevo.badalgs.algorithms.SortingAlgorithm.printSortingMessage;
 
 /**
  * This class implements the quicksort algorithm.
@@ -62,7 +63,7 @@ public final class QuickSort implements SortingAlgorithm {
 
     private void recSortVerbose(final int[] arr, final int left,
                                 final int right, final UiPrinter printer) {
-        SortingAlgorithm.printSortingMessage("recursive quicksort", printer);
+        printSortingMessage("recursive quicksort", printer);
         printArrayWithPointer(arr, left, 'l', printer);
         printArrayWithPointer(arr, right, 'r', printer);
         if (left < right) {
