@@ -25,34 +25,34 @@ public final class QuickSort implements SortingAlgorithm {
         if (left < right) {
             // Choosing the last element as the pivot element
             final int pivot = right;
-            int leftPointer = left;
-            int rightPointer = right - 1;
-            do {
+            int i = left;
+            int j = right - 1;
+            while (i < j) {
                 // Run through the array from the left until you encounter an
                 // entry that is larger than the pivot element.
-                while (leftPointer <= rightPointer
-                       && arr[leftPointer] <= arr[pivot]) {
-                    leftPointer++;
+                while (i <= right
+                       && arr[i] < arr[pivot]) {
+                    i++;
                 }
                 // Run through the array from the right until you encounter an
                 // entry that is smaller than the pivot element.
-                while (leftPointer <= rightPointer
-                       && arr[rightPointer] >= arr[pivot]) {
-                    rightPointer--;
+                while (j > left
+                       && arr[j] >= arr[pivot]) {
+                    j--;
                 }
                 // If we found two different elements that each are on the wrong
                 // side of the array, we swap them and go on.
-                if (leftPointer < rightPointer) {
-                    swap(arr, rightPointer, leftPointer);
-                    rightPointer--;
-                    leftPointer++;
+                if (i < j) {
+                    swap(arr, j, i);
                 }
-            } while (leftPointer < rightPointer);
+            }
             // Pivot element goes to the middle
-            swap(arr, leftPointer, pivot);
+            if (arr[i] > arr[pivot]) {
+                swap(arr, i, right);
+            }
             // Sort both halves recursively
-            recSort(arr, left, leftPointer - 1);
-            recSort(arr, leftPointer + 1, right);
+            recSort(arr, left, i - 1);
+            recSort(arr, i + 1, right);
         }
     }
 
