@@ -62,7 +62,7 @@ Activates verbose setting automatically.
 
 == Change log:
 
-=== v.0.1 - Small changes + new algorithms
+=== v.0.1 - Small changes + new algorithms (11/22/2020)
 
 - Heapsort and quicksort have been added to the application.
 
