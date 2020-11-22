@@ -5,7 +5,7 @@ import java.io.PrintStream;
 /**
  * Prints the applications output.
  */
-public final class UiPrinter {
+public class UiPrinter {
 
     /**
      * The PrintStream that this class prints its output to.

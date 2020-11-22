@@ -34,6 +34,9 @@ dependencies {
 
     // Annotations to manually disable SpotBugs warnings
     compileOnly 'com.github.spotbugs:spotbugs-annotations:4.1.4'
+
+    // Use mockito for mocks, stubs,... in tests
+    testImplementation 'org.mockito:mockito-core:3.6.0'
 }
 
 application {

@@ -83,7 +83,7 @@ public final class QuickSort implements SortingAlgorithm {
                 }
                 // Run through the array from the right until you encounter an
                 // entry that is smaller than the pivot element.
-                while (left < rightPointer
+                while (rightPointer > left
                         && arr[rightPointer] >= arr[pivot]) {
                     rightPointer--;
                 }
@@ -94,8 +94,8 @@ public final class QuickSort implements SortingAlgorithm {
                 }
             }
             // Pivot element goes to the middle
-            if (arr[left] > arr[pivot]) {
-                swapVerbose(arr, leftPointer, pivot, printer);
+            if (arr[leftPointer] > arr[pivot]) {
+                swapVerbose(arr, leftPointer, right, printer);
             }
             // Sort both halves recursively
             recSortVerbose(arr, left, leftPointer - 1, printer);

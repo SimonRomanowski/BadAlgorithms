@@ -1,17 +1,25 @@
 package de.lasagevo.badalgs.algorithms;
 
 
+import de.lasagevo.badalgs.UiPrinter;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+
 import static org.assertj.core.api.Assertions.assertThat;
+
+import static org.mockito.Mockito.mock;
 
 /**
  * Testing selection sort.
  */
 public class SortingTest {
 
-    private int[][] toSort = new int[5][];
+    private final int[][] toSort = new int[5][];
 
     private SortingTest() {
     }
@@ -37,10 +45,24 @@ public class SortingTest {
     }
 
     @Test
+    void selectionSortVerboseTest() {
+        final SortingAlgorithm sorting = new SelectionSort();
+
+        assertVerboseSortingWorks(sorting);
+    }
+
+    @Test
     void insertionSortTest() {
         final SortingAlgorithm sorting = new InsertionSort();
 
         assertSortingWorks(sorting);
+    }
+
+    @Test
+    void insertionSortVerboseTest() {
+        final SortingAlgorithm sorting = new InsertionSort();
+
+        assertVerboseSortingWorks(sorting);
     }
 
     @Test
@@ -51,10 +73,24 @@ public class SortingTest {
     }
 
     @Test
+    void bubbleSortVerboseTest() {
+        final SortingAlgorithm sorting = new BubbleSort();
+
+        assertVerboseSortingWorks(sorting);
+    }
+
+    @Test
     void quickSortTest() {
         final SortingAlgorithm sorting = new QuickSort();
 
         assertSortingWorks(sorting);
+    }
+
+    @Test
+    void quickSortVerboseTest() {
+        final SortingAlgorithm sorting = new QuickSort();
+
+        assertVerboseSortingWorks(sorting);
     }
 
     @Test
@@ -64,12 +100,28 @@ public class SortingTest {
         assertSortingWorks(sorting);
     }
 
-    private void assertSortingWorks(SortingAlgorithm sorting) {
+    @Test
+    void heapSortVerboseTest() {
+        final SortingAlgorithm sorting = new HeapSort();
+
+        assertVerboseSortingWorks(sorting);
+    }
+
+    private void assertSortingWorks(final SortingAlgorithm sorting) {
         for (int[] ints : toSort) {
             sorting.sort(ints);
             assertThat(ints).isSorted();
         }
     }
+
+    private void assertVerboseSortingWorks(final SortingAlgorithm sorting) {
+        UiPrinter printer = mock(UiPrinter.class);
+        for (int[] ints : toSort) {
+            sorting.sortVerbose(printer, ints);
+            assertThat(ints).isSorted();
+        }
+    }
+
 
 
 }
