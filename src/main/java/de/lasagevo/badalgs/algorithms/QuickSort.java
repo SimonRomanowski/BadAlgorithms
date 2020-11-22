@@ -25,34 +25,34 @@ public final class QuickSort implements SortingAlgorithm {
         if (left < right) {
             // Choosing the last element as the pivot element
             final int pivot = right;
-            int i = left;
-            int j = right - 1;
-            while (i < j) {
+            int leftPointer = left;
+            int rightPointer = right - 1;
+            while (leftPointer < rightPointer) {
                 // Run through the array from the left until you encounter an
                 // entry that is larger than the pivot element.
-                while (i <= right
-                       && arr[i] < arr[pivot]) {
-                    i++;
+                while (leftPointer <= right
+                       && arr[leftPointer] < arr[pivot]) {
+                    leftPointer++;
                 }
                 // Run through the array from the right until you encounter an
                 // entry that is smaller than the pivot element.
-                while (j > left
-                       && arr[j] >= arr[pivot]) {
-                    j--;
+                while (rightPointer > left
+                       && arr[rightPointer] >= arr[pivot]) {
+                    rightPointer--;
                 }
                 // If we found two different elements that each are on the wrong
                 // side of the array, we swap them and go on.
-                if (i < j) {
-                    swap(arr, j, i);
+                if (leftPointer < rightPointer) {
+                    swap(arr, rightPointer, leftPointer);
                 }
             }
             // Pivot element goes to the middle
-            if (arr[i] > arr[pivot]) {
-                swap(arr, i, right);
+            if (arr[leftPointer] > arr[pivot]) {
+                swap(arr, leftPointer, right);
             }
             // Sort both halves recursively
-            recSort(arr, left, i - 1);
-            recSort(arr, i + 1, right);
+            recSort(arr, left, leftPointer - 1);
+            recSort(arr, leftPointer + 1, right);
         }
     }
 
