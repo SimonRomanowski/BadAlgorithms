@@ -163,10 +163,10 @@ public final class CommandProcessor {
             origArr = Arrays.copyOf(array, array.length);
             if (verbose) {
                 algorithm.sortVerbose(printer, array);
-                printer.print("\tDone!");
             } else {
                 algorithm.sort(array);
             }
+            printer.print("\tDone!");
         }
         if (dontSort && array != null) {
             array = origArr;
