@@ -1,11 +1,5 @@
 package de.lasagevo.badalgs;
 
-import de.lasagevo.badalgs.algorithms.BubbleSort;
-import de.lasagevo.badalgs.algorithms.InsertionSort;
-import de.lasagevo.badalgs.algorithms.QuickSort;
-import de.lasagevo.badalgs.algorithms.SelectionSort;
-import de.lasagevo.badalgs.algorithms.SortingAlgorithm;
-
 /**
  * Commands are certain inputs that can be interpreted by the application.
  */
@@ -102,58 +96,16 @@ public enum Command {
         public String toString() {
             return "qui_sort - sort your list with quicksort";
         }
-    };
+    },
 
     /**
-     * Returns true if and only if this is a sorting command.
-     * @return True if this is a sorting command
+     * The 'hea_sort' command.
      */
-    public boolean isSortingCommand() {
-        boolean isSorting;
-        switch (this) {
-            case BUB_SORT: // Falls through
-            case INS_SORT: // Falls through
-            case QUI_SORT: // Falls through
-            case SEL_SORT:
-                isSorting = true;
-                break;
-
-            default:
-                isSorting = false;
-                break;
+    HEA_SORT {
+        @Override
+        public String toString() {
+            return "hea_sort - sort your list with heapsort";
         }
-        return isSorting;
     }
 
-    /**
-     * Returns the {@link SortingAlgorithm} corresponding to this command.
-     * <p>If this is no sorting command, null is returned.</p>
-     * @return The corresponding {@link SortingAlgorithm}, or null
-     */
-    @SuppressWarnings("PMD.NullAssignment")
-    public SortingAlgorithm asSorting() {
-        SortingAlgorithm sorting;
-        switch (this) {
-            case BUB_SORT:
-                sorting = new BubbleSort();
-                break;
-
-            case INS_SORT:
-                sorting = new InsertionSort();
-                break;
-
-            case SEL_SORT:
-                sorting = new SelectionSort();
-                break;
-
-            case QUI_SORT:
-                sorting = new QuickSort();
-                break;
-
-            default:
-                sorting = null;
-                break;
-        }
-        return sorting;
-    }
 }

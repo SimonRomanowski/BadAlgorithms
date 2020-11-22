@@ -32,40 +32,43 @@ public class SortingTest {
     void selectionSortTest() {
         final SortingAlgorithm sorting = new SelectionSort();
 
-        for (int[] ints : toSort) {
-            sorting.sort(ints);
-            assertThat(ints).isSorted();
-        }
+        assertSortingWorks(sorting);
     }
 
     @Test
     void insertionSortTest() {
         final SortingAlgorithm sorting = new InsertionSort();
 
-        for (int[] ints : toSort) {
-            sorting.sort(ints);
-            assertThat(ints).isSorted();
-        }
+        assertSortingWorks(sorting);
     }
 
     @Test
     void bubbleSortTest() {
         final SortingAlgorithm sorting = new BubbleSort();
 
-        for (int[] ints : toSort) {
-            sorting.sort(ints);
-            assertThat(ints).isSorted();
-        }
+        assertSortingWorks(sorting);
     }
 
     @Test
     void quickSortTest() {
         final SortingAlgorithm sorting = new QuickSort();
 
+        assertSortingWorks(sorting);
+    }
+
+    @Test
+    void heapSortTest() {
+        final SortingAlgorithm sorting = new HeapSort();
+
+        assertSortingWorks(sorting);
+    }
+
+    private void assertSortingWorks(SortingAlgorithm sorting) {
         for (int[] ints : toSort) {
             sorting.sort(ints);
             assertThat(ints).isSorted();
         }
     }
+
 
 }

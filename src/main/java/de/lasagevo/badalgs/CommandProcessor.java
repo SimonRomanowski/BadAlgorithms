@@ -73,8 +73,8 @@ public final class CommandProcessor {
     public void execute(final Command command) {
         if (command == null) {
             printer.print(COMMAND_NOT_FOUND);
-        } else if (command.isSortingCommand()) {
-            sort(command.asSorting());
+        } else if (CommandHelper.isSortingCommand(command)) {
+            sort(CommandHelper.asSorting(command));
         } else {
             switch (command) {
                 case HELP:
