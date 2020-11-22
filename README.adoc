@@ -38,6 +38,11 @@ have to replace 'BadAlgorithms' with the new name.)
 |verbose
 |turn on/off the verbose setting, printing additional information while executing algorithms
 
+|dont_sort
+|leaves the entered list untouched by the sorting algorithm.
+
+Activates verbose setting automatically.
+
 |sel_sort
 |sort your list with selection sort
 
@@ -46,6 +51,12 @@ have to replace 'BadAlgorithms' with the new name.)
 
 |bub_sort
 |sort your list with bubble sort
+
+|qui_sort
+|sort your list with quicksort
+
+|hea_sort
+|sort your list with heapsort
 |===
 
 
