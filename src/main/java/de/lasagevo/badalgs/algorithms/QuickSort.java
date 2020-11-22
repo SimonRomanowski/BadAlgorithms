@@ -10,8 +10,8 @@ import static de.lasagevo.badalgs.algorithms.SortingAlgorithm.printSortingMessag
 /**
  * This class implements the quicksort algorithm.
  * <p>Quicksort needs Θ(n²) comparisons and Θ(n) permutations but it has a
- * very common best-case of O(n*log((n)), making it one of the most effective
- * sorting algorithms.</p>
+ * very common average-case of O(n*log((n)) comparisons, making it one of the
+ * most effective sorting algorithms.</p>
  */
 @SuppressWarnings("PMD.AtLeastOneConstructor")
 public final class QuickSort implements SortingAlgorithm {
