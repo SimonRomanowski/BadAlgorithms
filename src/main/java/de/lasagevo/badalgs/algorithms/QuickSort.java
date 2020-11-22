@@ -74,16 +74,16 @@ public final class QuickSort implements SortingAlgorithm {
             printArrayWithPointer(arr, leftPointer, 'i', printer);
             int rightPointer = right - 1;
             printArrayWithPointer(arr, rightPointer, 'j', printer);
-            do {
+            while (leftPointer < rightPointer) {
                 // Run through the array from the left until you encounter an
                 // entry that is larger than the pivot element.
-                while (leftPointer <= rightPointer
-                        && arr[leftPointer] <= arr[pivot]) {
+                while (leftPointer <= right
+                        && arr[leftPointer] < arr[pivot]) {
                     leftPointer++;
                 }
                 // Run through the array from the right until you encounter an
                 // entry that is smaller than the pivot element.
-                while (leftPointer <= rightPointer
+                while (left < rightPointer
                         && arr[rightPointer] >= arr[pivot]) {
                     rightPointer--;
                 }
@@ -91,12 +91,12 @@ public final class QuickSort implements SortingAlgorithm {
                 // side of the array, we swap them and go on.
                 if (leftPointer < rightPointer) {
                     swapVerbose(arr, rightPointer, leftPointer, printer);
-                    rightPointer--;
-                    leftPointer++;
                 }
-            } while (leftPointer < rightPointer);
+            }
             // Pivot element goes to the middle
-            swapVerbose(arr, leftPointer, pivot, printer);
+            if (arr[left] > arr[pivot]) {
+                swapVerbose(arr, leftPointer, pivot, printer);
+            }
             // Sort both halves recursively
             recSortVerbose(arr, left, leftPointer - 1, printer);
             recSortVerbose(arr, leftPointer + 1, right, printer);
