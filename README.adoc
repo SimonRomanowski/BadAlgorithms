@@ -13,7 +13,8 @@ in depth.
 == How to run
 
 - Make sure you have installed the newest version of Java Runtime Environment.
-- Download the version of BadAlgorithms that you want to use.
+- Download the version of BadAlgorithms that you want to use. (The download link is located
+at the side of the GitHub repository under the section "Releases")
 - Open a command line and navigate to the directory in which you saved the JAR file.
 - Type 'java -jar BadAlgorithms.jar'. (If you saved the file under a different name, you
 have to replace 'BadAlgorithms' with the new name.)
